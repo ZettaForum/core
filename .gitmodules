@@ -1,0 +1,12 @@
+[submodule "defaults/theme/wecenter"]
+	path = defaults/theme/wecenter
+	url = git@github.com:ZettaForum/theme-wecenter.git
+[submodule "defaults/language/zh_CN"]
+	path = defaults/language/zh_CN
+	url = git@github.com:ZettaForum/language-zh_CN.git
+[submodule "defaults/language/zh_TW"]
+	path = defaults/language/zh_TW
+	url = git@github.com:ZettaForum/language-zh_TW.git
+[submodule "defaults/language/en_US"]
+	path = defaults/language/en_US
+	url = git@github.com:ZettaForum/language-en_US.git
