@@ -99,7 +99,7 @@ export const addTranslations = (language: string, t: RawTranslations, root: stri
     return allTranslations
 }
 
-const _UNIT_TEST = () => {
+const _UNIT_TEST = () => {  // eslint-disable-line
     addTranslations("zh_CN", {
         a: "abc123",
         b: {
