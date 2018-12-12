@@ -71,3 +71,11 @@ export default class ZettaForum {
     static defineThemeName = defineThemeName
 }
 
+
+// 在 top (window) 上定义只读的全局属性
+if (top) {
+    Object.defineProperty(top, "ZettaForum", {
+        value: ZettaForum,
+        enumerable: true
+    })
+}
