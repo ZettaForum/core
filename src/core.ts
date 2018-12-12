@@ -16,6 +16,11 @@ interface TopNavItem extends NavItem {
     icon?: string
 }
 
+interface Footer {
+    year?: number,  // Founding Year
+    author?: string,  // The author(s) or the webmaster(s)
+}
+
 export interface Init {
     name: string,
     el?: string,
@@ -24,6 +29,7 @@ export interface Init {
     logo?: string,
     logoLink?: string,
     topNav: TopNavItem[],  // Max Length: 5
+    footer?: Footer | string /** html */ | Element,
     routerMode?: "hash" | "history"
 }
 
@@ -45,6 +51,15 @@ export default class ZettaForum {
             theme = getThemeFromName(init.theme)
         } else {
             theme = init.theme
+        }
+
+        const footer = init.footer
+        if (!(typeof footer == "string") && !(footer instanceof Element)) {
+            // Define the default values of init.footer
+            init.footer = Object.assign({}, {
+                year: 2018,
+                author: "Xmader",
+            }, footer)
         }
 
         return theme(init)
