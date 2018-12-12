@@ -24,16 +24,19 @@ export class Translator {
     translations: FormattedTranslations = null
     _root: string = null
 
+    static defaultLanguage = "zh_CN"
+
     constructor(language: string) {
         this.translations = allTranslations[language]
     }
 
     _translate(str: string) {
         if (this._root) {
-            return this.translations[`${this._root}.${str}`]
-        } else {
-            return this.translations[str]
+            str = `${this._root}.${str}`
         }
+
+        return (this.translations && this.translations[str])
+            || allTranslations[Translator.defaultLanguage][str]
     }
 
     setRoot(root: string[]) {
@@ -118,7 +121,9 @@ const _UNIT_TEST = () => {  // eslint-disable-line
 
     console.log(allTranslations)
 
-    const { translate } = new Translator("zh_CN")
+    const tr = new Translator("zh_CN")
+    tr.root = ["b", "d"]
+    const { translate } = tr
     console.log(translate("a"))
 
     // npx parcel watch translate.ts --public-url ./ --no-source-maps --out-file translate.js -d ./
