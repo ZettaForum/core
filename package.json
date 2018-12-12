@@ -23,8 +23,12 @@
     "scripts": {
         "build": "parcel build main.js --public-url ./ --detailed-report",
         "watch": "parcel watch main.js --public-url ./ ",
-        "watch:disable-HMR": "npm run watch -- --no-hmr",
-        "http-server": "http-server . -p 8082 -c-1 -s"
+        "build:pure": "parcel build src/core.ts --out-file pure.js --public-url ./ --detailed-report",
+        "watch:pure": "parcel watch src/core.ts --out-file pure.js --public-url ./ ",
+        "release": "npm run build && npm run build:pure && npm --no-git-tag-version version",
+        "release:minor": "npm run release -- minor",
+        "release:patch": "npm run release -- patch",
+        "http-server": "http-server . -p 8082 -c-1"
     },
     "license": "MIT"
 }
