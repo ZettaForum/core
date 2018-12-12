@@ -91,7 +91,11 @@ export const addTranslations = (language: string, t: RawTranslations, root: stri
     let translations = {}
 
     Object.entries(formatted).forEach(([key, value]) => {
-        translations[`${_root}.${key}`] = value
+        if (_root) {
+            translations[`${_root}.${key}`] = value
+        } else {
+            translations[key] = value
+        }
     })
 
     allTranslations[language] = Object.assign({},
