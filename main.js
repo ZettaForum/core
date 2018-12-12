@@ -10,13 +10,15 @@ import ZettaForum from "./src/core"
 // 导入默认主题
 import "./defaults/theme/wecenter"
 
-
+// 导入默认语言包
+import "./defaults/language/zh_CN"
+import "./defaults/language/en_US"
 
 const _UNIT_TEST = () => {  // eslint-disable-line
     new ZettaForum({
         el: "#app",
         name: "test",
-        language: "zh_CN",
+        // language: "en_US",
         logo: "lib/img/logo.png",
         routerMode: "hash",
         topNav: [
