@@ -4,7 +4,7 @@
  * @license MIT
  */
 
-import { Translator, addTranslations } from "./translate"
+import { Translator, addTranslations, getUserLanguage } from "./translate"
 import { Theme, getThemeFromName, defineThemeName } from "./theme"  // eslint-disable-line
 
 interface NavItem {
@@ -40,7 +40,7 @@ export default class ZettaForum {
         init = Object.assign({
             el: "#app",
             theme: "wecenter",
-            language: "zh_CN",
+            language: getUserLanguage() || "zh_CN",
             logo: "logo.png",
             logoLink: "/",
             routerMode: "hash",

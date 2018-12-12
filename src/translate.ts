@@ -106,6 +106,12 @@ export const addTranslations = (language: string, t: RawTranslations, root: stri
     return allTranslations
 }
 
+export const getUserLanguage = () => {
+    if (!top) return
+    const language = top.navigator && top.navigator.language
+    return language && language.replace("-", "_")
+}
+
 const _UNIT_TEST = () => {  // eslint-disable-line
     addTranslations("zh_CN", {
         a: "abc123",
